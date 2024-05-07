@@ -1,0 +1,223 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login;successful-login",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Successful login",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 855032707
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I am on the login page",
+            "match": {
+              "location": "step-definitions/loginsteps.js:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 697958
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I enter valid credentials",
+            "match": {
+              "location": "step-definitions/loginsteps.js:8"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 8773374,
+              "error_message": "Error: net::ERR_CONNECTION_REFUSED at http://localhost:8081\n    at navigate (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:171:27)\n    at async Deferred.race (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:36:20)\n    at async CdpFrame.goto (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:137:25)\n    at async CdpPage.goto (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:585:20)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "I click the login button",
+            "match": {
+              "location": "step-definitions/loginsteps.js:21"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "make new Document",
+            "match": {
+              "location": "step-definitions/loginsteps.js:28"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "I should be redirected to the dashboard",
+            "match": {
+              "location": "step-definitions/loginsteps.js:41"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 7930625
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "login",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Login",
+    "tags": [],
+    "uri": "features/login.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "document-message;write-and-verify-a-message-in-a-document",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Write and verify a message in a document",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 359724667
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I am on the document page",
+            "match": {
+              "location": "step-definitions/verifySavedsteps.js:3"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 4349374,
+              "error_message": "Error: net::ERR_CONNECTION_REFUSED at http://localhost:8081/#/filelist?userId=seunghyun_baek&password=qwer1234!%40&personaId=\n    at navigate (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:171:27)\n    at async Deferred.race (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:36:20)\n    at async CdpFrame.goto (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:137:25)\n    at async CdpPage.goto (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:585:20)\n    at async CustomWorld.<anonymous> (/Users/jieseobpark/tmax/uiTestAutomation/step-definitions/verifySavedsteps.js:4:3)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I enter the document",
+            "match": {
+              "location": "step-definitions/verifySavedsteps.js:7"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "I write a message \"Hello, World!\"",
+            "match": {
+              "location": "step-definitions/verifySavedsteps.js:12"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "I exit the document",
+            "match": {
+              "location": "step-definitions/verifySavedsteps.js:17"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I enter the document again",
+            "match": {
+              "location": "step-definitions/verifySavedsteps.js:22"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "I should see the message \"Hello, World!\"",
+            "match": {
+              "location": "step-definitions/verifySavedsteps.js:27"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 3840125
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "document-message",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Document Message",
+    "tags": [],
+    "uri": "features/verifySaved.feature"
+  }
+]
