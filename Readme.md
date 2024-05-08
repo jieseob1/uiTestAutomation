@@ -1,3 +1,11 @@
+## 동작 방법
+- 해당 테스트는 node 18.10버전 이상에서 사용할 수 있고, 오피스에서는 Node 16버전을 사용하고 있으므로, 18.10버전으로 버전업 한 뒤 사용하도록 해야한다.
+
+- nvm 설치 방법 가이드: https://github.com/nvm-sh/nvm
+- 맥 기준 nvm 설치하는 방법
+1. `$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash` 커맨드 입력 or brew install nvm 
+2. 설치 후 => 추후 작성
+
 이제 cucumber-js 명령어를 실행하면 다음과 같은 순서로 테스트가 실행됩니다:
 
 .feature 파일에서 시나리오를 읽어옵니다.

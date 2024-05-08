@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js --import step-definitions/**/collaborationsteps.js features/",
+    "test": "cucumber-js --import step-definitions/**/real-time-collaborationsteps.js features/",
     "report": "node generate-report.js"
   },
   "keywords": [],

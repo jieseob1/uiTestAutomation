@@ -397,7 +397,7 @@ pre {
           </div>
           <div class="label-container">
             <div class="generated-on">
-              Fri Apr 26 2024 17:21:20 GMT+0900 (대한민국 표준시)
+              Tue May 07 2024 17:49:23 GMT+0900 (대한민국 표준시)
             </div>
           </div>
       </div>
@@ -423,7 +423,7 @@ pre {
         </div>
         <div class="feature-value">
           <h5>
-            1
+            0
           </h5>
         </div>
       </div>
@@ -433,7 +433,7 @@ pre {
         </div>
         <div class="feature-value">
           <h5>
-            1
+            2
           </h5>
         </div>
       </div>
@@ -528,7 +528,7 @@ pre {
 <div class="row" xmlns="http://www.w3.org/1999/html">
 
 
-<div class="feature-passed">
+<div class="feature-failed">
 
     <div class="col-lg-6 col-md-6">
         <div class="panel panel-default">
@@ -538,14 +538,14 @@ pre {
                     <div class="tags">
                     </div>
                     
-                    <a data-toggle="collapse" href="#collapseFeatureuitestautomationeb5c757a-60b6-46a9-9673-b764f234379c">
+                    <a data-toggle="collapse" href="#collapseFeatureuitestautomation8d177836-8c89-4994-a21d-63f5d4b364fc">
                         <i class="glyphicon glyphicon-chevron-right"></i>
                         <i class="glyphicon glyphicon-chevron-down"></i>
                         <b>Feature:</b>Login
                         <span class="label-container">
-              <span class="label label-success"
-                                                         title="1 Scenarios Passed">1</span>
               
+              <span class="label label-danger"
+                                                         title="1 Scenarios Failed">1</span>
               
               
               
@@ -554,7 +554,7 @@ pre {
                     </a>
                 </h4>
             </div>
-            <div id="collapseFeatureuitestautomationeb5c757a-60b6-46a9-9673-b764f234379c" class="panel-collapse collapse">
+            <div id="collapseFeatureuitestautomation8d177836-8c89-4994-a21d-63f5d4b364fc" class="panel-collapse collapse">
                 <div class="panel-body">
                     
                     
@@ -567,10 +567,10 @@ pre {
                                 <div class="tags">
                                 </div>
                                 
-                                <a data-toggle="collapse" href="#collapseScenariouitestautomation7bb719c6-7eaa-49d8-92e0-65a7ddc9263d">
+                                <a data-toggle="collapse" href="#collapseScenariouitestautomation4eb0b7c7-eddb-496d-a2b7-9d670ebe07e6">
                                     <div>
 
-                                        <div style="padding-right: 30px">
+                                        <div style="padding-right: 70px">
                                             <i class="glyphicon glyphicon-chevron-right"></i>
                                             <i class="glyphicon glyphicon-chevron-down"></i>
                                             <b>Scenario:</b><div class="ellipsis" data-text="Successful login">Successful login</div>
@@ -579,11 +579,13 @@ pre {
                             <span class="label-container ">
                               
                               <span class="label label-success"
-                                                               title="5 Steps Passed">5</span>
+                                                               title="1 Steps Passed">1</span>
                               
                               
-                              
-                              
+                              <span class="label label-warning"
+                                                                title="3 Steps Skipped">3</span>
+                              <span class="label label-danger"
+                                                               title="1 Steps Failed">1</span>
                               
                             </span>
                                         </div>
@@ -592,7 +594,7 @@ pre {
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseScenariouitestautomation7bb719c6-7eaa-49d8-92e0-65a7ddc9263d"
+                        <div id="collapseScenariouitestautomation4eb0b7c7-eddb-496d-a2b7-9d670ebe07e6"
                              class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div></div>
@@ -643,8 +645,8 @@ pre {
                                 <div class="row steps">
                                     
                                     
-                                    <span class="label label-success" title="Success"><i
-                                            class="glyphicon glyphicon-ok"></i></span>
+                                    <span class="label label-danger" title="Failed"><i
+                                            class="glyphicon glyphicon-remove"></i></span>
                                     
                                     
                                     <span class="text">
@@ -653,7 +655,7 @@ pre {
                             
                           
                               <span class="step-duration">
-                               2s 382ms
+                               8ms
                               </span>
                             
                          
@@ -664,6 +666,54 @@ pre {
                       </span>
                                 
                                 
+
+                                    
+                                    <a href="#error0_02"
+                                       data-toggle="collapse" class="toggle">Show Error +</a>
+                                    <div id="error0_02"
+                                         class="collapse">
+                                        <pre class="info show-modal"
+                                             data-toggle="modal"
+                                             style="cursor: pointer"
+                                             data-target="#error-modal-0_02">
+                                            <br> Error: net::ERR_CONNECTION_REFUSED at http://localhost:8081
+    at navigate (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:171:27)
+    at async Deferred.race (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:36:20)
+    at async CdpFrame.goto (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:137:25)
+    at async CdpPage.goto (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:585:20)</pre>
+                                    </div>
+
+                                <div class="modal fade" id="error-modal-0_02" tabindex="-1" role="dialog"
+                                     aria-labelledby="stacktraceModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close"><span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <h4 class="modal-title" id="error-modal-title">
+                                                    Error
+                                                </h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h5>
+                                                    <pre><br>Error: net::ERR_CONNECTION_REFUSED at http://localhost:8081
+    at navigate (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:171:27)
+    at async Deferred.race (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:36:20)
+    at async CdpFrame.goto (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:137:25)
+    at async CdpPage.goto (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:585:20)</pre>
+                                                </h5>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
 
                                     
 
@@ -681,8 +731,8 @@ pre {
                                 <div class="row steps">
                                     
                                     
-                                    <span class="label label-success" title="Success"><i
-                                            class="glyphicon glyphicon-ok"></i></span>
+                                    <span class="label label-warning" title="Skipped"><i
+                                            class="glyphicon glyphicon-minus"></i></span>
                                     
                                     
                                     <span class="text">
@@ -691,7 +741,7 @@ pre {
                             
                           
                               <span class="step-duration">
-                               20ms
+                               < 1ms
                               </span>
                             
                          
@@ -719,8 +769,8 @@ pre {
                                 <div class="row steps">
                                     
                                     
-                                    <span class="label label-success" title="Success"><i
-                                            class="glyphicon glyphicon-ok"></i></span>
+                                    <span class="label label-warning" title="Skipped"><i
+                                            class="glyphicon glyphicon-minus"></i></span>
                                     
                                     
                                     <span class="text">
@@ -729,7 +779,7 @@ pre {
                             
                           
                               <span class="step-duration">
-                               54ms
+                               < 1ms
                               </span>
                             
                          
@@ -757,8 +807,8 @@ pre {
                                 <div class="row steps">
                                     
                                     
-                                    <span class="label label-success" title="Success"><i
-                                            class="glyphicon glyphicon-ok"></i></span>
+                                    <span class="label label-warning" title="Skipped"><i
+                                            class="glyphicon glyphicon-minus"></i></span>
                                     
                                     
                                     <span class="text">
@@ -767,7 +817,7 @@ pre {
                             
                           
                               <span class="step-duration">
-                               1ms
+                               < 1ms
                               </span>
                             
                          
@@ -816,7 +866,7 @@ pre {
                     <div class="tags">
                     </div>
                     
-                    <a data-toggle="collapse" href="#collapseFeatureuitestautomation564ce766-7af1-4bfd-bfa0-21c0bd6f181f">
+                    <a data-toggle="collapse" href="#collapseFeatureuitestautomation809566e5-4a3f-4843-aa43-bc6062fa2d2a">
                         <i class="glyphicon glyphicon-chevron-right"></i>
                         <i class="glyphicon glyphicon-chevron-down"></i>
                         <b>Feature:</b>Document Message
@@ -832,7 +882,7 @@ pre {
                     </a>
                 </h4>
             </div>
-            <div id="collapseFeatureuitestautomation564ce766-7af1-4bfd-bfa0-21c0bd6f181f" class="panel-collapse collapse">
+            <div id="collapseFeatureuitestautomation809566e5-4a3f-4843-aa43-bc6062fa2d2a" class="panel-collapse collapse">
                 <div class="panel-body">
                     
                     
@@ -845,7 +895,7 @@ pre {
                                 <div class="tags">
                                 </div>
                                 
-                                <a data-toggle="collapse" href="#collapseScenariouitestautomation6dbb3669-f673-4b70-b8bb-98b86701fa3f">
+                                <a data-toggle="collapse" href="#collapseScenariouitestautomationf99a00e2-4073-4e22-8ca3-efefde6a82fc">
                                     <div>
 
                                         <div style="padding-right: 50px">
@@ -856,11 +906,11 @@ pre {
                                         <div>
                             <span class="label-container ">
                               
-                              <span class="label label-success"
-                                                               title="5 Steps Passed">5</span>
                               
                               
                               
+                              <span class="label label-warning"
+                                                                title="5 Steps Skipped">5</span>
                               <span class="label label-danger"
                                                                title="1 Steps Failed">1</span>
                               
@@ -871,7 +921,7 @@ pre {
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseScenariouitestautomation6dbb3669-f673-4b70-b8bb-98b86701fa3f"
+                        <div id="collapseScenariouitestautomationf99a00e2-4073-4e22-8ca3-efefde6a82fc"
                              class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div></div>
@@ -884,8 +934,8 @@ pre {
                                 <div class="row steps">
                                     
                                     
-                                    <span class="label label-success" title="Success"><i
-                                            class="glyphicon glyphicon-ok"></i></span>
+                                    <span class="label label-danger" title="Failed"><i
+                                            class="glyphicon glyphicon-remove"></i></span>
                                     
                                     
                                     <span class="text">
@@ -894,7 +944,7 @@ pre {
                             
                           
                               <span class="step-duration">
-                               1s 911ms
+                               4ms
                               </span>
                             
                          
@@ -907,211 +957,23 @@ pre {
                                 
 
                                     
-
-                                    
-
-                                    
-
-                                    
-                                </div>
-                                </p>
-                                
-                                
-                                
-                                <p class="scenario-container">
-                                <div class="row steps">
-                                    
-                                    
-                                    <span class="label label-success" title="Success"><i
-                                            class="glyphicon glyphicon-ok"></i></span>
-                                    
-                                    
-                                    <span class="text">
-                        <span class="keyword highlight">When </span>
-                          <span> I enter the document</span>
-                            
-                          
-                              <span class="step-duration">
-                               558ms
-                              </span>
-                            
-                         
-                            
-                          
-                          <!-- Adding data table data-->
-                          
-                      </span>
-                                
-                                
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                </div>
-                                </p>
-                                
-                                
-                                
-                                <p class="scenario-container">
-                                <div class="row steps">
-                                    
-                                    
-                                    <span class="label label-success" title="Success"><i
-                                            class="glyphicon glyphicon-ok"></i></span>
-                                    
-                                    
-                                    <span class="text">
-                        <span class="keyword highlight">And </span>
-                          <span> I write a message &quot;Hello, World!&quot;</span>
-                            
-                          
-                              <span class="step-duration">
-                               2s 961ms
-                              </span>
-                            
-                         
-                            
-                          
-                          <!-- Adding data table data-->
-                          
-                      </span>
-                                
-                                
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                </div>
-                                </p>
-                                
-                                
-                                
-                                <p class="scenario-container">
-                                <div class="row steps">
-                                    
-                                    
-                                    <span class="label label-success" title="Success"><i
-                                            class="glyphicon glyphicon-ok"></i></span>
-                                    
-                                    
-                                    <span class="text">
-                        <span class="keyword highlight">And </span>
-                          <span> I exit the document</span>
-                            
-                          
-                              <span class="step-duration">
-                               24ms
-                              </span>
-                            
-                         
-                            
-                          
-                          <!-- Adding data table data-->
-                          
-                      </span>
-                                
-                                
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                </div>
-                                </p>
-                                
-                                
-                                
-                                <p class="scenario-container">
-                                <div class="row steps">
-                                    
-                                    
-                                    <span class="label label-success" title="Success"><i
-                                            class="glyphicon glyphicon-ok"></i></span>
-                                    
-                                    
-                                    <span class="text">
-                        <span class="keyword highlight">And </span>
-                          <span> I enter the document again</span>
-                            
-                          
-                              <span class="step-duration">
-                               669ms
-                              </span>
-                            
-                         
-                            
-                          
-                          <!-- Adding data table data-->
-                          
-                      </span>
-                                
-                                
-
-                                    
-
-                                    
-
-                                    
-
-                                    
-                                </div>
-                                </p>
-                                
-                                
-                                
-                                <p class="scenario-container">
-                                <div class="row steps">
-                                    
-                                    
-                                    <span class="label label-danger" title="Failed"><i
-                                            class="glyphicon glyphicon-remove"></i></span>
-                                    
-                                    
-                                    <span class="text">
-                        <span class="keyword highlight">Then </span>
-                          <span> I should see the message &quot;Hello, World!&quot;</span>
-                            
-                          
-                              <span class="step-duration">
-                               5s 3ms
-                              </span>
-                            
-                         
-                            
-                          
-                          <!-- Adding data table data-->
-                          
-                      </span>
-                                
-                                
-
-                                    
-                                    <a href="#error1_06"
+                                    <a href="#error1_01"
                                        data-toggle="collapse" class="toggle">Show Error +</a>
-                                    <div id="error1_06"
+                                    <div id="error1_01"
                                          class="collapse">
                                         <pre class="info show-modal"
                                              data-toggle="modal"
                                              style="cursor: pointer"
-                                             data-target="#error-modal-1_06">
-                                            <br> Error: function timed out, ensure the promise resolves within 5000 milliseconds
-    at Timeout.(anonymous) (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/@cucumber/cucumber/lib/time.js:54:20)
-    at listOnTimeout (node:internal/timers:564:17)
-    at process.processTimers (node:internal/timers:507:7)</pre>
+                                             data-target="#error-modal-1_01">
+                                            <br> Error: net::ERR_CONNECTION_REFUSED at http://localhost:8081/#/filelist?userId=seunghyun_baek&password=qwer1234!%40&personaId=
+    at navigate (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:171:27)
+    at async Deferred.race (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:36:20)
+    at async CdpFrame.goto (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:137:25)
+    at async CdpPage.goto (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:585:20)
+    at async CustomWorld.(anonymous) (/Users/jieseobpark/tmax/uiTestAutomation/step-definitions/verifySavedsteps.js:4:3)</pre>
                                     </div>
 
-                                <div class="modal fade" id="error-modal-1_06" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="error-modal-1_01" tabindex="-1" role="dialog"
                                      aria-labelledby="stacktraceModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
@@ -1125,10 +987,12 @@ pre {
                                             </div>
                                             <div class="modal-body">
                                                 <h5>
-                                                    <pre><br>Error: function timed out, ensure the promise resolves within 5000 milliseconds
-    at Timeout.(anonymous) (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/@cucumber/cucumber/lib/time.js:54:20)
-    at listOnTimeout (node:internal/timers:564:17)
-    at process.processTimers (node:internal/timers:507:7)</pre>
+                                                    <pre><br>Error: net::ERR_CONNECTION_REFUSED at http://localhost:8081/#/filelist?userId=seunghyun_baek&password=qwer1234!%40&personaId=
+    at navigate (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:171:27)
+    at async Deferred.race (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:36:20)
+    at async CdpFrame.goto (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:137:25)
+    at async CdpPage.goto (/Users/jieseobpark/tmax/uiTestAutomation/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:585:20)
+    at async CustomWorld.(anonymous) (/Users/jieseobpark/tmax/uiTestAutomation/step-definitions/verifySavedsteps.js:4:3)</pre>
                                                 </h5>
                                             </div>
 
@@ -1141,6 +1005,196 @@ pre {
                                     </div>
                                 </div>
 
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-warning" title="Skipped"><i
+                                            class="glyphicon glyphicon-minus"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">When </span>
+                          <span> I enter the document</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-warning" title="Skipped"><i
+                                            class="glyphicon glyphicon-minus"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">And </span>
+                          <span> I write a message &quot;Hello, World!&quot;</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-warning" title="Skipped"><i
+                                            class="glyphicon glyphicon-minus"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">And </span>
+                          <span> I exit the document</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-warning" title="Skipped"><i
+                                            class="glyphicon glyphicon-minus"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">And </span>
+                          <span> I enter the document again</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                                </p>
+                                
+                                
+                                
+                                <p class="scenario-container">
+                                <div class="row steps">
+                                    
+                                    
+                                    <span class="label label-warning" title="Skipped"><i
+                                            class="glyphicon glyphicon-minus"></i></span>
+                                    
+                                    
+                                    <span class="text">
+                        <span class="keyword highlight">Then </span>
+                          <span> I should see the message &quot;Hello, World!&quot;</span>
+                            
+                          
+                              <span class="step-duration">
+                               < 1ms
+                              </span>
+                            
+                         
+                            
+                          
+                          <!-- Adding data table data-->
+                          
+                      </span>
+                                
+                                
 
                                     
 
@@ -1188,8 +1242,8 @@ pre {
     google.setOnLoadCallback(function () {
       drawChart({
         "title": "Features",
-        "failed": 1,
-        "passed": 1,
+        "failed": 2,
+        "passed": 0,
         "notdefined": 0,
         "pending": 0,
         "skipped": 0,
@@ -1199,8 +1253,8 @@ pre {
     google.setOnLoadCallback(function () {
       drawChart({
         "title": "Scenarios",
-        "failed": 1,
-        "passed": 1,
+        "failed": 2,
+        "passed": 0,
         "rerun": 0,
         "notdefined": 0,
         "pending": 0,
