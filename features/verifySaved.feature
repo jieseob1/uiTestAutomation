@@ -1,5 +1,7 @@
+@verify-saved
 Feature: Document Message
-
+  
+  @verify-saved
   Scenario: Write and verify a message in a document
     Given I am on the document page
     When I enter the document

@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js --import step-definitions/**/real-time-collaborationsteps.js features/",
+    "test": "cucumber-js --format progress --import step-definitions/**/table-real-time-collaborationsteps.js features/",
     "report": "node generate-report.js"
   },
   "keywords": [],
@@ -17,8 +17,13 @@
     "esm": "^3.2.25"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.16",
+    "@types/cucumber": "^7.0.0",
+    "@types/node": "^20.12.12",
+    "@types/puppeteer": "^7.0.4",
     "chai": "^5.1.0",
     "cucumber": "^6.0.7",
-    "puppeteer": "^22.7.1"
+    "puppeteer": "^22.7.1",
+    "typescript": "^5.4.5"
   }
 }

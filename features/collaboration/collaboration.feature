@@ -1,5 +1,7 @@
+@collaboration
 Feature: Document Collaboration
-
+  
+  @collaboration
   Scenario: Two users simultaneously editing different parts of the document
     Given "User A" and "User B" have opened the same document
     When "User A" types "Collaborative document editing facilitates seamless communication among team members." in the first paragraph
