@@ -31,6 +31,8 @@ export async function checkMessageSynchronized(page: Page, expectedMessages: str
   await page.bringToFront();
   await waitForElements(page, expectedMessages, selectorForSelectorAll);
   const actualMessages = await getElementsText(page, selectorForSelectorAll);
+  console.log("actualMessages", actualMessages);
+  console.log("expectedMessages", expectedMessages);
   await checkElementsText(actualMessages, expectedMessages);
 }
 

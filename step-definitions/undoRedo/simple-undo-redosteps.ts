@@ -1,19 +1,19 @@
 import { Given, When, Then, After, Before } from '@cucumber/cucumber';
-import { FIRSTDOCUMENT, ISHEADLESS, URL } from 'constants/common';
-import { PARAGRAPH, SELECTION } from 'constants/office_docx';
+import { FIRSTDOCUMENT, ISHEADLESS, STEP_TIMEOUT, URL } from '../../constants/common.js';
+import { PARAGRAPH, SELECTION } from '../../constants/office_docx.js';
 import puppeteer, { Browser, Page } from 'puppeteer';
-import { clearUpAndDisconnectPage } from 'utils/clearup';
-import { writeText } from 'utils/elementActions';
-import { redo, undo } from 'utils/keyboardActions';
-import { pageLoadingComplete } from 'utils/navigation';
-import { checkMessageSynchronized, checkMessageUnSynchronized } from 'utils/textEvaluation';
-import { withErrorHandling } from 'utils/util';
+import { clearUpAndDisconnectPage } from '../../utils/clearup.js';
+import { writeText } from '../../utils/elementActions.js';
+import { redo, undo } from '../../utils/keyboardActions.js';
+import { pageLoadingComplete } from '../../utils/navigation.js';
+import { checkMessageSynchronized, checkMessageUnSynchronized } from '../../utils/textEvaluation.js';
+import { withErrorHandling } from '../../utils/util.js';
 
 let browser: Browser;
 let pageA: Page;
 let pageB: Page;
 
-Before({ tags: '@simple-undo-redo', timeout: 30 * 1000 }, async function () {
+Before({ tags: '@simple-undo-redo', timeout: STEP_TIMEOUT }, async function () {
   browser = await puppeteer.launch({ headless: ISHEADLESS })
   pageA = await browser.newPage();
   pageB = await browser.newPage();
@@ -27,29 +27,29 @@ After({ tags: '@simple-undo-redo' }, async function () {
   await withErrorHandling(() => browser.close(), "Error occured while closing broswer");
 })
 
-Given('"User A" and "User B" have opened the same document', { timeout: 30 * 1000 }, async function () {
+Given('"User A" and "User B" have opened the same document in simple undo redo steps', { timeout: STEP_TIMEOUT }, async function () {
   withErrorHandling(() => pageLoadingComplete(pageA, FIRSTDOCUMENT, SELECTION, URL), "opening the pageA has failed");
   withErrorHandling(() => pageLoadingComplete(pageB, FIRSTDOCUMENT, SELECTION, URL), "opening the pageB has failed");
 });
 
-When('"User A" types {string}', async function (text) {
+When('"User A" types {string} in simple undo redo steps', async function (text) {
   withErrorHandling(() => writeText(pageA, SELECTION, text), "writing the text has failed at pageA");
 });
 
-When('"User B" sees the {string} made by "User A"', async function (text) {
+When('"User B" sees the {string} made by "User A" in simple undo redo steps', async function (text) {
   withErrorHandling(() => checkMessageSynchronized(pageB, [text], PARAGRAPH), "error occured while verifying expect message and acutal message");
 });
 
-When('"User A" undo their changes', async function () {
+When('"User A" undo their changes in simple undo redo steps', async function () {
   withErrorHandling(() => undo(pageA), "exception occur while undo text at pageA");
 });
-Then('"User B" text should different with {string}', { timeout: 30 * 1000 }, async function (text) {
+Then('"User B" text should different with {string} in simple undo redo steps', { timeout: STEP_TIMEOUT }, async function (text) {
   withErrorHandling(() => checkMessageSynchronized(pageB, [text], PARAGRAPH), "error occured while verifying expect message and acutal message");
 })
-When('"User A" redo their changes', async function () {
+When('"User A" redo their changes in simple undo redo steps', async function () {
   withErrorHandling(() => redo(pageA), "exception occur while redo text at pageA");
 });
 
-Then('"User B" should see the text {string}', { timeout: 30 * 1000 }, async function (text) {
+Then('"User B" should see the text {string} in simple undo redo steps', { timeout: STEP_TIMEOUT }, async function (text) {
   withErrorHandling(() => checkMessageSynchronized(pageB, [text], PARAGRAPH), "error occured while verifying expect message and acutal message");
 });

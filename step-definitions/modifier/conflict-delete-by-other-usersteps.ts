@@ -1,41 +1,43 @@
 import { Given, When, Then, After, Before } from '@cucumber/cucumber';
 import puppeteer, { Browser, Page } from 'puppeteer';
-import { ISHEADLESS, DISCONNECT_BUTTON, URL, SELECTION, PARAGRAPH, FIRSTDOCUMENT } from '../../constants.js';
-import clearUp, { writeText, undo, clickElement, pageLoadingComplete, pageNavigationAndBringToFront, checkMessageSynchronized, clickUsingSelector, waitTime, checkMessageUnSynchronized, enter } from '../../util.js';
+import { FIRSTDOCUMENT, ISHEADLESS, STEP_TIMEOUT, URL } from '../../constants/common.js';
+import { withErrorHandling } from '../../utils/util.js';
+import { clearUpAndDisconnectPage } from '../../utils/clearup.js';
+import { PARAGRAPH, SELECTION } from '../../constants/office_docx.js';
+import { deleteText, writeText } from '../../utils/elementActions.js';
+import { pageLoadingComplete } from '../../utils/navigation.js';
+import { checkMessageSynchronized } from '../../utils/textEvaluation.js';
 
 let browser: Browser;
 let pageA: Page;
 let pageB: Page;
 
 Before({ tags: '@conflict-delete-by-other-user', timeout: STEP_TIMEOUT }, async function () {
-  browser = await puppeteer.launch({ headless: ISHEADLESS })
+  browser = await puppeteer.launch({ headless: ISHEADLESS });
   pageA = await browser.newPage();
   pageB = await browser.newPage();
-})
+});
 
 After({ tags: '@conflict-delete-by-other-user' }, async function () {
-  pageA.bringToFront();
-  await clearUp(pageA);
-  await clickElement(pageA, DISCONNECT_BUTTON);
+  await withErrorHandling(() => clearUpAndDisconnectPage(pageA), "Error occurred while clearing up and disconnecting pageA");
+  await withErrorHandling(() => clearUpAndDisconnectPage(pageB), "Error occurred while clearing up and disconnecting pageB");
+  await withErrorHandling(() => browser.close(), "Error occurred while closing browser");
+});
 
-  pageB.bringToFront();
-  await clearUp(pageB);
-  await clickElement(pageB, DISCONNECT_BUTTON);
+Given('"User A" and "User B" have opened the same document in conflict delete by other user steps', { timeout: STEP_TIMEOUT }, async function () {
+  await withErrorHandling(() => pageLoadingComplete(pageA, FIRSTDOCUMENT, SELECTION, URL), "Opening pageA has failed");
+  await withErrorHandling(() => pageLoadingComplete(pageB, FIRSTDOCUMENT, SELECTION, URL), "Opening pageB has failed");
+});
 
-  await browser.close();
-})
-Given('"User A" and "User B" have opened the same document', async function () {
+When('"User A" writes {string} in conflict delete by other user steps', async function (text) {
+  await withErrorHandling(() => writeText(pageA, SELECTION, text), "Writing the text has failed");
+});
 
-})
+When('"User B" deletes the word {string} in the sentence {string} in conflict delete by other user steps', async function (targetWord, sentence) {
+  await withErrorHandling(() => deleteText(pageB, sentence, targetWord, PARAGRAPH), "deleting the text has failed");
+});
 
-When('"User A" edits {string} in the document', async function (text) {
-
-})
-
-When('"User B" deletes the entire sentence edited by "User A"', async function () {
-
-})
-
-Then('Both "User A" and "User B" should see the same document content', async function () {
-
-})
+Then('Both "User A" and "User B" should see the document content as {string} in conflict delete by other user steps', async function (expectedText) {
+  await checkMessageSynchronized(pageA, [expectedText], PARAGRAPH);
+  await checkMessageSynchronized(pageB, [expectedText], PARAGRAPH);
+});

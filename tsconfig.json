@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "module": "commonjs",
+    "module": "ESNext",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -10,12 +10,14 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "outDir": "./dist",
-    "rootDir": "./"
+    "rootDir": "./",
+    "moduleResolution": "node",
   },
   "include": [
     "step-definitions/**/*.ts",
+    "features/**/*.feature",
     "utils/**/*.ts",
-    "constants/**/*.ts"
+    "constants/**/*.ts",
   ],
   "exclude": [
     "node_modules"

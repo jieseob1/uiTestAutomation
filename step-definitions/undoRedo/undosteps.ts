@@ -1,14 +1,14 @@
 // undo-steps.js
 import { Given, When, Then, After, Before } from '@cucumber/cucumber';
-import { FIRSTDOCUMENT, ISHEADLESS, STEP_TIMEOUT, URL } from 'constants/common';
-import { PARAGRAPH, SELECTION } from 'constants/office_docx';
+import { FIRSTDOCUMENT, ISHEADLESS, STEP_TIMEOUT, URL } from '../../constants/common.js';
+import { PARAGRAPH, SELECTION } from '../../constants/office_docx.js';
 import puppeteer, { Browser, Page } from 'puppeteer';
-import { clearUpAndDisconnectPage } from 'utils/clearup';
-import { writeText } from 'utils/elementActions';
-import { undo } from 'utils/keyboardActions';
-import { pageLoadingComplete } from 'utils/navigation';
-import { checkMessageSynchronized, checkMessageUnSynchronized } from 'utils/textEvaluation';
-import { withErrorHandling } from 'utils/util';
+import { clearUpAndDisconnectPage } from '../../utils/clearup.js';
+import { writeText } from '../../utils/elementActions.js';
+import { undo } from '../../utils/keyboardActions.js';
+import { pageLoadingComplete } from '../../utils/navigation.js';
+import { checkMessageSynchronized, checkMessageUnSynchronized } from '../../utils/textEvaluation.js';
+import { withErrorHandling } from '../../utils/util.js';
 
 let browser: Browser;
 let pageA: Page;
@@ -27,7 +27,7 @@ After({ tags: '@undo' }, async function () {
 })
 
 
-Given('"User A" and "User B" have opened the same document in undo', { timeout: STEP_TIMEOUT }, async function () {
+Given('"User A" and "User B" have opened the same document in undo steps', { timeout: STEP_TIMEOUT }, async function () {
   withErrorHandling(() => pageLoadingComplete(pageA, FIRSTDOCUMENT, SELECTION, URL), "opening the pageA has failed");
   withErrorHandling(() => pageLoadingComplete(pageB, FIRSTDOCUMENT, SELECTION, URL), "opening the pageB has failed");
 });

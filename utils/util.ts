@@ -1,10 +1,7 @@
-import { OFFICE_SECTION, TABLE_WRAPPER } from "constants/office_docx";
-import { evaluateTextUsingSelector } from "./textEvaluation";
+import { OFFICE_SECTION, TABLE_WRAPPER } from "../constants/office_docx.js";
+import { evaluateTextUsingSelector } from "./textEvaluation.js";
 import { Page } from "puppeteer";
 
-export async function syncSingleMessageSynchronized(page: Page, selector: string) {
-  await evaluateTextUsingSelector(page, selector);
-}
 
 export async function waitTime(second: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, second * 1000));

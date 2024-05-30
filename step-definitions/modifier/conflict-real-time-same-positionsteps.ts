@@ -1,25 +1,64 @@
-// 두 사용자가 동일한 단어 또는 문장을 동시에 편집하는 경우
+import { After, Before, Given, Then, When } from "@cucumber/cucumber";
+import { FIRSTDOCUMENT, ISHEADLESS, STEP_TIMEOUT, URL } from "../../constants/common.js";
+import { PARAGRAPH, SELECTION } from "../../constants/office_docx.js";
+import puppeteer, { Browser, Page } from "puppeteer";
+import { clearUp, clearUpAndDisconnectPage } from "../../utils/clearup.js";
+import { moveSpecificPosition, replaceText, writeText } from "../../utils/elementActions.js";
+import { pageLoadingComplete } from "../../utils/navigation.js";
+import { checkMessageSynchronized } from "../../utils/textEvaluation.js";
+import { withErrorHandling } from "../../utils/util.js";
 
-// ## 추가 고려 사항
-// - 병합된 내용이 의도한 대로 "hello world" 나오는지
-// - 병합 후에 문서의 내용이 두 사용자에게 동일하게 동기화 되는지 확인
+let browserA: Browser;
+let browserB: Browser;
+let pageA: Page;
+let pageB: Page;
+let targetSentence: string;
 
-// 추가 시나리오:
-// @conflict-insertion-deletion
-// 시나리오: 한 사용자가 문장을 삽입하고 다른 사용자가 해당 문장을 삭제하는 경우
 
-// "사용자 A"와 "사용자 B"가 동일한 문서를 열었을 때
-// "사용자 A"가 문서에 새로운 문장을 삽입하고
-// "사용자 B"가 "사용자 A"가 삽입한 문장을 삭제하면
-// 변경 사항이 올바르게 병합되어야 하고
-// "사용자 A"와 "사용자 B" 모두 동일한 문서 내용을 보아야 합니다.
+Before({ tags: '@conflict-real-time-same-position', timeout: STEP_TIMEOUT }, async function () {
+  browserA = await puppeteer.launch({ headless: ISHEADLESS });
+  browserB = await puppeteer.launch({ headless: ISHEADLESS });
+  pageA = await browserA.newPage();
+  pageB = await browserB.newPage();
+});
 
-// @conflict-formatting => 이거 어떻게 알 수 있음?
-// 시나리오: 두 사용자가 동일한 텍스트에 서로 다른 서식을 적용하는 경우
+After({ tags: '@conflict-real-time-same-position' }, async function () {
+  withErrorHandling(() => clearUpAndDisconnectPage(pageA), "error occured while clearUpAndDisconnectPage at pageA");
+  withErrorHandling(() => clearUpAndDisconnectPage(pageB), "error occured while clearUpAndDisconnectPage at pageB");
 
-// "사용자 A"와 "사용자 B"가 동일한 문서를 열었을 때
-// "사용자 A"가 특정 텍스트를 선택하고 굵게 서식을 적용하고
-// "사용자 B"가 동일한 텍스트를 선택하고 밑줄 서식을 적용하면
-// 변경 사항이 올바르게 병합되어야 하고
-// 선택한 텍스트에 굵게와 밑줄 서식이 모두 적용되어야 하며
-// 변경 사항이 "사용자 A"와 "사용자 B" 모두에게 동기화되어야 합니다.
+  await withErrorHandling(() => browserA.close(), "Error occured while closing broswerA");
+  await withErrorHandling(() => browserB.close(), "Error occured while closing broswerB");
+});
+
+Given('"User A" and "User B" have opened the same document in conflict real time same position', { timeout: STEP_TIMEOUT }, async function () {
+  await withErrorHandling(() => pageLoadingComplete(pageA, FIRSTDOCUMENT, SELECTION, URL), "opening the pageA has failed");
+  await withErrorHandling(() => clearUp(pageA), "error occured while cleaning at pageA"); // 이부분은 추가해주는게 좋을듯
+  await withErrorHandling(() => pageLoadingComplete(pageB, FIRSTDOCUMENT, SELECTION, URL), "opening the pageB has failed");
+});
+When('"User A" writes {string}', { timeout: STEP_TIMEOUT }, async function (text) {
+  targetSentence = text;
+  await withErrorHandling(() => writeText(pageA, SELECTION, text), "writing the text has failed");
+})
+When('both users simultaneously select {string} and changes it to {string} and {string} in conflict real time same position', { timeout: STEP_TIMEOUT }, async function (oldWord, userANewWord, userBNewWord) {
+  await Promise.all([
+    withErrorHandling(async () => {
+      const successA = await replaceText(pageA, targetSentence, oldWord, userANewWord, PARAGRAPH);
+      if (!successA) {
+        moveSpecificPosition(pageB, PARAGRAPH, userBNewWord);
+        writeText(pageA, PARAGRAPH, userANewWord);
+      }
+    }, "error occurred while replacing userA word"),
+    withErrorHandling(async () => {
+      const successB = await replaceText(pageB, targetSentence, oldWord, userBNewWord, PARAGRAPH);
+      if (!successB) {
+        moveSpecificPosition(pageB, PARAGRAPH, userANewWord);
+        writeText(pageB, PARAGRAPH, userBNewWord);
+      }
+    }, "error occurred while replacing userB word")
+  ]);
+
+})
+Then('The document should display {string} at {string} and {string} in conflict real time same position', async function (expectSentence, userA, userB) {
+  await checkMessageSynchronized(pageA, [expectSentence], PARAGRAPH);
+  await checkMessageSynchronized(pageB, [expectSentence], PARAGRAPH);
+}) 

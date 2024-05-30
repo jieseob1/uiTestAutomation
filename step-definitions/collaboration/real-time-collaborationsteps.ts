@@ -1,12 +1,12 @@
 import { Given, When, Then, Before, After } from '@cucumber/cucumber';
 import puppeteer, { Browser, Page } from 'puppeteer';
-import { FIRSTDOCUMENT, ISHEADLESS, URL } from 'constants/common';
-import { clearUpAndDisconnectPage } from 'utils/clearup';
-import { pageLoadingComplete } from 'utils/navigation';
-import { PARAGRAPH, SELECTION } from 'constants/office_docx';
-import { clickUsingSelector, writeText } from 'utils/elementActions';
-import { checkMessageSynchronized } from 'utils/textEvaluation';
-import { withErrorHandling } from 'utils/util';
+import { FIRSTDOCUMENT, ISHEADLESS, URL } from '../../constants/common.js';
+import { clearUpAndDisconnectPage } from '../../utils/clearup.js';
+import { pageLoadingComplete } from '../../utils/navigation.js';
+import { PARAGRAPH, SELECTION } from '../../constants/office_docx.js';
+import { clickUsingSelector, writeText } from '../../utils/elementActions.js';
+import { checkMessageSynchronized } from '../../utils/textEvaluation.js';
+import { withErrorHandling } from '../../utils/util.js';
 
 let browser: Browser;
 let pageA: Page;

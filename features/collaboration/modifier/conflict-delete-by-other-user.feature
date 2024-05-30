@@ -2,7 +2,8 @@
 Feature: Conflict resolution and merging during collaborative editing
 
   @conflict-delete-by-other-user
-  Scenario: One User deletes a sentence containing another user's simultaneous changes
-    Given "User A" and "User B" have opened the same document
-    When "User A" and "User B" simultaneously edit the document where "User A" edits "This is the first sentence edited by User A." and "User B" deletes the entire sentence
-    Then Both "User A" and "User B" should see the document content as: ""
+  Scenario: One User partially deletes a sentence containing another user's changes
+    Given "User A" and "User B" have opened the same document in conflict delete by other user steps
+    When "User A" writes "This is the first sentence edited by User A." in conflict delete by other user steps
+    And "User B" deletes the word "edited" in the sentence "This is the first sentence edited by User A." in conflict delete by other user steps
+    Then Both "User A" and "User B" should see the document content as "This is the first sentence by User A." in conflict delete by other user steps

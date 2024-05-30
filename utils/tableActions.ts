@@ -1,6 +1,6 @@
 import { Page } from "puppeteer";
 import { evaluateAndClickElement } from "./elementActions.js";
-import { INSERT_BUTTON, INSERT_TABLE_COLUMN_INPUT, INSERT_TABLE_CONFIRM_BUTTON, INSERT_TABLE_GROUP, INSERT_TABLE_MENU, INSERT_TABLE_ROW_INPUT } from "constants/office_docx.js";
+import { INSERT_BUTTON, INSERT_TABLE_COLUMN_INPUT, INSERT_TABLE_CONFIRM_BUTTON, INSERT_TABLE_GROUP, INSERT_TABLE_MENU, INSERT_TABLE_ROW_INPUT } from "../constants/office_docx.js";
 
 export async function createTable(page: Page, columnNumber: number, rowNumber: number) {
   page.bringToFront();

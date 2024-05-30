@@ -1,11 +1,10 @@
 @conflict-real-time-same-position
-Feature: Conflict resolution and merging during collaborative editing
+Feature: conflict in real time at same position in collaborative mode
 
   @conflict-real-time-same-position
   Scenario: Two users editing the same word or sentence simultaneously
-    Given "User A" and "User B" have opened the same document
-    When "User A" selects a word and changes it to "hello"
-    And "User B" selects the same word and changes it to "world"
-    Then The changes made by both users should be merged correctly
-    And The document should display "hello world"
-    And The changes should be synchronized for both "User A" and "User 
+    Given "User A" and "User B" have opened the same document in conflict real time same position
+    When "User A" writes "Hello world." in conflict real time same position
+    And both users simultaneously select "world" and changes it to "everyone" and "team" in conflict real time same position
+    Then The document should display "Hello everyone team." at "User A" and "User B" in conflict real time same position
+    

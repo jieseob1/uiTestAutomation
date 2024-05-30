@@ -17,4 +17,3 @@ export const INSERT_TABLE_ROW_INPUT = '#pk-office-a-root > div.pk-office-a-dialo
 export const INSERT_TABLE_CONFIRM_BUTTON = '#pk-office-a-root > div.pk-office-a-dialog-container > div.src-style-dialog-Dialog-module__dialog--Qrzun.src-style-dialog-table-AddTableDialog-module__dialog--sfMUC > div.src-style-dialog-DialogFooter-module__footer--X3TvC > button:nth-child(1)';
 export const TABLE_WRAPPER = '#table-wrapper';
 export const TABLE_CELLS = '.pk-office-d-table-cell';
-export const LOCALHOST_URL = "http://localhost:8081";

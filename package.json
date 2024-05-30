@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "type": "module",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "cucumber-js --format progress --import step-definitions/**/table-real-time-collaborationsteps.js features/",
-    "report": "node generate-report.js"
+    "build": "tsc",
+    "test:login": "npm run build && echo 'Running test:login' && cucumber-js --format progress --tags @login --import dist/step-definitions/**/loginsteps.js features/ && echo 'Finished test:login'",
+    "test:others": "npm run build && echo 'Running test:others' && cucumber-js --format progress --tags 'not @login' --import 'dist/step-definitions/**/*.js' --format @cucumber/pretty-formatter && echo 'Finished test:others'",
+    "report": "echo 'Generating report' && node generate-report.js && echo 'Finished generating report'",
+    "test": "npm run test:login && npm run test:others && npm run report",
+    "mytest": "npm run build && echo 'Running Cucumber tests...' && cucumber-js --format progress --import 'dist/step-definitions/**/*.js' --format progress-bar --format @cucumber/pretty-formatter && echo 'End Running Cucumber tests...'"
   },
   "keywords": [],
   "author": "",
@@ -14,16 +17,29 @@
   "dependencies": {
     "@cucumber/cucumber": "^10.6.0",
     "cucumber-html-reporter": "^7.1.1",
-    "esm": "^3.2.25"
+    "esm": "^3.2.25",
+    "globby": "^14.0.1",
+    "multiple-cucumber-html-reporter": "^3.6.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.24.6",
+    "@babel/core": "^7.24.6",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-decorators": "^7.24.6",
+    "@babel/preset-env": "^7.24.6",
+    "@babel/preset-typescript": "^7.24.6",
+    "@babel/register": "^7.24.6",
+    "@cucumber/pretty-formatter": "^1.0.1",
     "@types/chai": "^4.3.16",
     "@types/cucumber": "^7.0.0",
     "@types/node": "^20.12.12",
     "@types/puppeteer": "^7.0.4",
     "chai": "^5.1.0",
     "cucumber": "^6.0.7",
+    "npm-run-all": "^4.1.5",
     "puppeteer": "^22.7.1",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.4.5"
   }
 }

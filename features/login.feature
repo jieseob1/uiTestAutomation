@@ -1,4 +1,4 @@
-@beforeAll
+@login
 Feature: Login
 
   @login
@@ -8,3 +8,5 @@ Feature: Login
     And I click the login button
     And make new Document
     Then I should be redirected to the dashboard
+
+
